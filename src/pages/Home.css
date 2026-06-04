@@ -370,6 +370,34 @@
 }
 
 @media (max-width: 768px) {
+  .hero-content {
+    align-items: center;
+    padding-top: 5.5rem;
+    padding-right: 42%;
+    padding-left: 1rem;
+    padding-bottom: 2rem;
+  }
+  .hero-inner {
+    max-width: 100%;
+  }
+  .hero-h1 {
+    font-size: 1.3rem;
+    line-height: 1.25;
+    margin-bottom: 0.5rem;
+  }
+  .hero-sub {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+    line-height: 1.45;
+  }
+  .hero-cta {
+    gap: 0.4rem;
+  }
+  .cta-primary, .cta-ghost {
+    font-size: 10.5px;
+    padding: 0.5rem 0.8rem;
+  }
+
   .scroll-hint {
     display: none;
   }

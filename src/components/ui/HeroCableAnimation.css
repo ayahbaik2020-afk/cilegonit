@@ -40,18 +40,20 @@
 @media (max-width: 768px) {
   .hero-baby-wrapper {
     top: 90px;
-    bottom: auto;
-    right: 2%;
+    bottom: 0;
+    right: 0;
     left: auto;
-    opacity: 0.35;
+    width: 42%;
+    opacity: 0.85;
+    display: flex;
+    align-items: center;
     justify-content: flex-end;
-    align-items: flex-start;
   }
   .hero-baby-img {
-    width: 62vw;
-    max-width: 280px;
+    width: 100%;
+    max-width: 200px;
     height: auto;
-    object-position: top right;
+    object-position: center right;
   }
 }
 
