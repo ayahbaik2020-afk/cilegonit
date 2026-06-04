@@ -370,32 +370,35 @@
 }
 
 @media (max-width: 768px) {
+  .hero-section {
+    min-height: 72vh;
+  }
   .hero-content {
     align-items: center;
-    padding-top: 5.5rem;
+    padding-top: 4.25rem;
     padding-right: 42%;
     padding-left: 1rem;
-    padding-bottom: 2rem;
+    padding-bottom: 1.5rem;
   }
   .hero-inner {
     max-width: 100%;
   }
   .hero-h1 {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     line-height: 1.25;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
   }
   .hero-sub {
-    font-size: 0.8rem;
-    margin-bottom: 1rem;
-    line-height: 1.45;
+    font-size: 0.78rem;
+    margin-bottom: 0.85rem;
+    line-height: 1.4;
   }
   .hero-cta {
     gap: 0.4rem;
   }
   .cta-primary, .cta-ghost {
-    font-size: 10.5px;
-    padding: 0.5rem 0.8rem;
+    font-size: 10px;
+    padding: 0.45rem 0.75rem;
   }
 
   .scroll-hint {
@@ -405,8 +408,8 @@
     grid-template-columns: 1fr;
     min-height: unset;
   }
-  .svc-scene-panel { height: 260px; }
-  .svc-info-panel  { padding: 1.5rem; }
+  .svc-scene-panel { height: 240px; }
+  .svc-info-panel  { padding: 1.25rem; }
   .svc-scene-fade  { display: none; }
 
   .svc-tabs {
@@ -421,9 +424,14 @@
   }
   .svc-tab-btn {
     flex: 0 0 auto;
-    min-width: 145px;
+    min-width: 120px;
     scroll-snap-align: start;
-    padding: 0.65rem 1rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.78rem;
+  }
+  .svc-tab-btn svg {
+    width: 15px;
+    height: 15px;
   }
   .svc-tab-btn span {
     display: inline;
