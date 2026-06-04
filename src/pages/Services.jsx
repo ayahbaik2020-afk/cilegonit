@@ -1,14 +1,7 @@
-import { Suspense } from 'react'
-import { Canvas } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { TbCpu, TbNetwork, TbDeviceCctv, TbCode, TbServer, TbBrandWhatsapp, TbSettings, TbCheck } from 'react-icons/tb'
-import PCAssemblyScene from '../components/animations/PCAssemblyScene'
-import NetworkingScene from '../components/animations/NetworkingScene'
-import CCTVScene from '../components/animations/CCTVScene'
-import AppBuildScene from '../components/animations/AppBuildScene'
-import ServerScene from '../components/animations/ServerScene'
+import ServiceAnimation from '../components/ui/ServiceAnimation'
 import './Services.css'
 
 const SERVICES_DETAIL = [
@@ -17,7 +10,6 @@ const SERVICES_DETAIL = [
     icon: TbCpu,
     title: 'Servis & Rakit PC',
     tagline: 'Dari diagnosa hingga rakitan custom',
-    scene: PCAssemblyScene,
     desc: 'Tim teknisi kami siap menangani semua masalah PC Anda — dari yang lambat hingga mati total. Kami juga melayani rakit PC custom sesuai kebutuhan gaming, desain grafis, atau kebutuhan kantor.',
     items: [
       'Diagnosa & tune-up PC/laptop',
@@ -34,7 +26,6 @@ const SERVICES_DETAIL = [
     icon: TbNetwork,
     title: 'Instalasi Jaringan',
     tagline: 'LAN, WiFi, Fiber Optik, Mikrotik',
-    scene: NetworkingScene,
     desc: 'Kami merancang dan membangun infrastruktur jaringan yang handal untuk rumah, kantor, maupun skala industri. Mulai dari instalasi kabel CAT6, konfigurasi router Mikrotik, hingga tarik fiber optik.',
     items: [
       'Pasang jaringan LAN CAT5/6',
@@ -51,7 +42,6 @@ const SERVICES_DETAIL = [
     icon: TbDeviceCctv,
     title: 'Pasang CCTV',
     tagline: 'Keamanan 24 jam via smartphone',
-    scene: CCTVScene,
     desc: 'Lindungi aset Anda dengan sistem CCTV profesional. Kami menyediakan kamera HD hingga 4K dengan kemampuan night vision, motion detection, dan pemantauan jarak jauh melalui smartphone.',
     items: [
       'CCTV HD & 4K indoor/outdoor',
@@ -68,7 +58,6 @@ const SERVICES_DETAIL = [
     icon: TbCode,
     title: 'Pengembangan Software',
     tagline: 'Website & aplikasi sesuai kebutuhan bisnis',
-    scene: AppBuildScene,
     desc: 'Tim developer kami siap membantu mewujudkan ide digital Anda — dari website company profile, toko online, sistem informasi perusahaan, hingga aplikasi mobile Android/iOS.',
     items: [
       'Website company profile & landing page',
@@ -85,7 +74,6 @@ const SERVICES_DETAIL = [
     icon: TbServer,
     title: 'Solusi Server & Hosting',
     tagline: 'Infrastruktur IT yang andal dan scalable',
-    scene: ServerScene,
     desc: 'Kami membantu bisnis Anda memiliki infrastruktur server yang handal — dari server lokal, NAS, cloud hosting, hingga manajemen domain dan SSL.',
     items: [
       'Instalasi & konfigurasi server',
@@ -127,12 +115,7 @@ export default function Services() {
                   transition={{ duration: 0.6 }}
                   viewport={{ once: true }}
                 >
-                  <Canvas camera={{ position: [0, 0, 5], fov: 45 }} dpr={[1, 1.5]} gl={{ antialias: true, alpha: true }}>
-                    <Suspense fallback={null}>
-                      <svc.scene />
-                      <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={1.5} />
-                    </Suspense>
-                  </Canvas>
+                  <ServiceAnimation serviceId={svc.id} />
                 </motion.div>
 
                 <motion.div
