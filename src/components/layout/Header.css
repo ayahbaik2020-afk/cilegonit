@@ -159,7 +159,7 @@
 
 @media (max-width: 768px) {
   .desktop-only { display: none; }
-  .mobile-only  { display: flex; }
+  .mobile-only  { display: none !important; }
 
   /* Mobile glass header bar */
   .site-header {
@@ -173,22 +173,42 @@
   .pill-nav {
     justify-content: space-between;
     width: 100%;
-    padding: 0.75rem 1.25rem !important;
+    padding: 0.6rem 1rem !important;
+    gap: 0.75rem;
   }
 
-  .logo-pill, .menu-pill {
+  .logo-pill {
     background-color: transparent;
     box-shadow: none;
     width: 2.25rem;
     height: 2.25rem;
   }
 
-  .logo-pill:hover, .menu-pill:hover {
+  .logo-pill:hover {
     background-color: rgba(0, 0, 0, 0.04);
   }
 
-  .mobile-menu {
-    border-top: none;
-    background: rgba(255, 255, 255, 0.96);
+  /* Make links pill horizontally scrollable on mobile */
+  .links-pill {
+    display: flex !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: calc(100vw - 70px);
+    gap: 0.15rem;
+    padding: 0.35rem 0.5rem;
+    background-color: #EDEDED;
+    border-radius: 12px;
+    scrollbar-width: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    flex-shrink: 1;
+  }
+  .links-pill::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pill-link {
+    font-size: 11.5px;
+    padding: 0.25rem 0.55rem;
+    flex-shrink: 0;
   }
 }

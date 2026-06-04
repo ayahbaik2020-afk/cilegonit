@@ -41,7 +41,7 @@ export default function Header() {
         </Link>
 
         {/* Right — links pill */}
-        <div className="links-pill desktop-only">
+        <div className="links-pill">
           {NAV_LINKS.map(({ to, label }) => (
             <NavLink
               key={to}
