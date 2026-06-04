@@ -1,0 +1,354 @@
+.hero-cable-bg-container {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(160deg, #f0f9ff 0%, #e0f2fe 40%, #f1f5f9 100%);
+  overflow: hidden;
+}
+
+/* ── Baby mascot image ── */
+.hero-baby-wrapper {
+  position: absolute;
+  bottom: 0;
+  right: 4%;
+  z-index: 5;
+  pointer-events: none;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  animation: babyFloat 4s ease-in-out infinite;
+  /* ensure no overflow box shows */
+  overflow: hidden;
+}
+
+@keyframes babyFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-14px); }
+}
+
+.hero-baby-img {
+  width: clamp(280px, 38vw, 560px);
+  height: auto;
+  object-fit: contain;
+  object-position: bottom center;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 16px 32px rgba(30, 64, 175, 0.12));
+  user-select: none;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .hero-baby-wrapper {
+    right: 0;
+    left: 0;
+    bottom: 0;
+    opacity: 0.22;
+    justify-content: center;
+  }
+  .hero-baby-img {
+    width: clamp(200px, 60vw, 320px);
+  }
+}
+
+
+/* Fixed full-page SVG cable overlay — persists across all sections as user scrolls */
+.hero-cable-fixed-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  overflow: visible;
+}
+
+/* Light tech grid pattern */
+.tech-grid-overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0.45;
+  background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+  z-index: 0;
+}
+
+/* Winding SVG Canvas covering the background */
+.hero-cable-svg-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Silver rackmount Gigabit Switch */
+.hero-switch-chassis {
+  position: absolute;
+  top: 110px; /* Under navbar */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 640px;
+  height: 70px;
+  background: linear-gradient(180deg, #f8fafc 0%, #cbd5e1 100%);
+  border: 2px solid #94a3b8;
+  border-radius: 6px;
+  box-shadow: inset 0 2px 2px rgba(255,255,255,0.9), 
+              0 8px 30px rgba(15,23,42,0.06), 
+              0 1px 3px rgba(15,23,42,0.04);
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+
+/* Screws and rackmount ears */
+.hero-switch-ear {
+  position: absolute;
+  width: 10px;
+  top: -2px;
+  bottom: -2px;
+  background: #cbd5e1;
+  border: 1px solid #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-switch-ear.left {
+  left: -11px;
+  border-radius: 3px 0 0 3px;
+}
+
+.hero-switch-ear.right {
+  right: -11px;
+  border-radius: 0 3px 3px 0;
+}
+
+.hero-rack-screw {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #64748b;
+  border: 1px solid #94a3b8;
+}
+
+.hero-switch-faceplate {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  position: relative;
+}
+
+/* Brand logo & name on left */
+.hero-switch-brand {
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+  font-family: var(--font-mono);
+}
+
+.hero-brand-logo {
+  color: var(--primary);
+  display: flex;
+}
+
+.hero-brand-name {
+  font-size: 5.5px;
+  font-weight: 700;
+  color: #475569;
+  letter-spacing: 0.04em;
+}
+
+/* Switch ports centered */
+.hero-switch-ports {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.hero-switch-port {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.hero-port-led {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  border: 0.5px solid #94a3b8;
+  margin-bottom: 3px;
+  transition: all 0.2s ease;
+}
+
+.hero-port-led.active-blink-green {
+  background: #10b981;
+  border-color: #34d399;
+  box-shadow: 0 0 4px #10b981;
+  animation: hero-blink-led 1.2s infinite alternate;
+}
+
+.hero-port-led.active-blink-orange {
+  background: #f59e0b;
+  border-color: #fbbf24;
+  box-shadow: 0 0 4px #f59e0b;
+  animation: hero-blink-led 0.7s infinite alternate;
+}
+
+.hero-port-led.active-orange {
+  background: #f59e0b;
+  border-color: #fbbf24;
+  box-shadow: 0 0 3px #f59e0b;
+}
+
+@keyframes hero-blink-led {
+  0% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+.hero-port-socket {
+  width: 16px;
+  height: 14px;
+  background: #0f172a;
+  border: 1px solid #64748b;
+  border-radius: 2px;
+  position: relative;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.7);
+}
+
+.hero-port-socket.active-target {
+  border-color: #3b82f6;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.7), 0 0 3px rgba(59,130,246,0.3);
+}
+
+.hero-port-socket.active-target.active {
+  border-color: #10b981;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.7), 0 0 6px rgba(16, 185, 129, 0.4);
+}
+
+.hero-port-pins {
+  position: absolute;
+  top: 1px;
+  left: 2px;
+  right: 2px;
+  height: 3px;
+  background: repeating-linear-gradient(90deg, #d4af37, #d4af37 1px, transparent 1px, transparent 2px);
+}
+
+.hero-static-plug-boot {
+  position: absolute;
+  top: -2px;
+  left: 1px;
+  right: 1px;
+  height: 12px;
+  background: #475569;
+  border: 0.5px solid #0f172a;
+  border-bottom: none;
+  border-radius: 2px 2px 0 0;
+  opacity: 0.85;
+}
+
+.hero-static-plug-boot::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 3px;
+  right: 3px;
+  height: 5px;
+  background: #334155;
+}
+
+.hero-port-num {
+  font-size: 5px;
+  color: #64748b;
+  font-family: var(--font-mono);
+  margin-top: 2px;
+}
+
+/* Status LCD Screen */
+.hero-switch-lcd {
+  width: 60px;
+  height: 30px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 3px;
+  padding: 3px;
+  font-family: var(--font-mono);
+  font-size: 5.5px;
+  color: #475569;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5px;
+  transition: all 0.3s ease;
+}
+
+.hero-switch-lcd.connecting {
+  color: #f59e0b;
+  border-color: rgba(245, 158, 11, 0.3);
+  box-shadow: 0 0 4px rgba(245, 158, 11, 0.15);
+}
+
+.hero-switch-lcd.connected {
+  color: #10b981;
+  border-color: rgba(16, 185, 129, 0.3);
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.2);
+  text-shadow: 0 0 1.5px rgba(16, 185, 129, 0.4);
+}
+
+.hero-switch-lcd.disconnected {
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.2);
+  box-shadow: 0 0 4px rgba(239, 68, 68, 0.15);
+}
+
+.hero-lcd-line-1 {
+  font-size: 4.5px;
+  color: #64748b;
+  opacity: 0.6;
+}
+
+.hero-lcd-line-2 {
+  font-weight: 700;
+}
+
+/* Cable plug in SVG */
+.hero-cable-plug-g {
+  filter: drop-shadow(0 4px 10px rgba(15,23,42,0.15));
+}
+
+/* Keyframes for data pulse */
+@keyframes hero-data-flow {
+  to {
+    stroke-dashoffset: -32px;
+  }
+}
+
+.hero-data-flow-line {
+  animation: hero-data-flow 1.5s linear infinite;
+}
+
+@media (max-width: 640px) {
+  .hero-switch-chassis {
+    width: 95%;
+    height: 60px;
+    top: 90px;
+  }
+  .hero-switch-brand, .hero-switch-lcd {
+    display: none; /* Hide brand & LCD on mobile to fit ports bank */
+  }
+  .hero-switch-ports {
+    margin: 0 auto;
+  }
+}

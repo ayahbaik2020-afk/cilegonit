@@ -1,0 +1,156 @@
+/* ─── Wrapper ────────────────────────────────────────────────────────────────── */
+.shop-sign-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  /* gentle perpetual swing */
+  animation: signSwing 4s ease-in-out infinite;
+  transform-origin: top center;
+  cursor: default;
+  user-select: none;
+}
+
+@keyframes signSwing {
+  0%   { transform: rotate(-4deg); }
+  50%  { transform: rotate(4deg);  }
+  100% { transform: rotate(-4deg); }
+}
+
+/* ─── Chain links ─────────────────────────────────────────────────────────── */
+.shop-sign-chain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin-bottom: -1px;
+}
+
+.chain-link {
+  display: block;
+  width: 10px;
+  height: 6px;
+  border: 2px solid #94a3b8;
+  border-radius: 50%;
+  background: transparent;
+  margin: 1px 0;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.12);
+}
+
+/* ─── Sign board ──────────────────────────────────────────────────────────── */
+.shop-sign-board {
+  position: relative;
+  padding: 9px 16px 9px 12px;
+  border-radius: 8px;
+  border: 2px solid #cbd5e1;
+  background: linear-gradient(160deg, #ffffff 0%, #f8fafc 100%);
+  box-shadow:
+    0 4px 16px rgba(15, 23, 42, 0.10),
+    0 1px 3px rgba(15, 23, 42, 0.06),
+    inset 0 1px 0 rgba(255,255,255,0.8);
+  min-width: 120px;
+}
+
+/* OPEN state */
+.shop-sign-wrapper.open .shop-sign-board {
+  border-color: rgba(16, 185, 129, 0.5);
+  background: linear-gradient(160deg, #f0fdf4 0%, #dcfce7 100%);
+}
+
+/* CLOSED state */
+.shop-sign-wrapper.closed .shop-sign-board {
+  border-color: rgba(239, 68, 68, 0.35);
+  background: linear-gradient(160deg, #fff5f5 0%, #fee2e2 100%);
+}
+
+/* Corner screws */
+.sign-screw {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #e2e8f0, #94a3b8);
+  border: 1px solid #cbd5e1;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.18);
+}
+.sign-screw.tl { top: 4px;    left: 4px;  }
+.sign-screw.tr { top: 4px;    right: 4px; }
+.sign-screw.bl { bottom: 4px; left: 4px;  }
+.sign-screw.br { bottom: 4px; right: 4px; }
+
+/* Screw cross-slot */
+.sign-screw::before,
+.sign-screw::after {
+  content: '';
+  position: absolute;
+  background: rgba(100,116,139,0.55);
+  border-radius: 1px;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+.sign-screw::before { width: 4px; height: 1px; }
+.sign-screw::after  { width: 1px; height: 4px; }
+
+/* ─── Inner content ────────────────────────────────────────────────────────── */
+.sign-inner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Status pulsing dot */
+.sign-dot {
+  flex-shrink: 0;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.shop-sign-wrapper.open .sign-dot {
+  background: #10b981;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.55);
+  animation: dotPulseOpen 1.4s ease-out infinite;
+}
+
+.shop-sign-wrapper.closed .sign-dot {
+  background: #ef4444;
+  box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.55);
+  animation: dotPulseClosed 1.8s ease-out infinite;
+}
+
+@keyframes dotPulseOpen {
+  0%   { box-shadow: 0 0 0 0   rgba(16, 185, 129, 0.55); }
+  70%  { box-shadow: 0 0 0 7px rgba(16, 185, 129, 0);    }
+  100% { box-shadow: 0 0 0 0   rgba(16, 185, 129, 0);    }
+}
+@keyframes dotPulseClosed {
+  0%   { box-shadow: 0 0 0 0   rgba(239, 68, 68, 0.55); }
+  70%  { box-shadow: 0 0 0 7px rgba(239, 68, 68, 0);    }
+  100% { box-shadow: 0 0 0 0   rgba(239, 68, 68, 0);    }
+}
+
+/* Text */
+.sign-text-block {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.sign-label {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.shop-sign-wrapper.open  .sign-label { color: #065f46; }
+.shop-sign-wrapper.closed .sign-label { color: #991b1b; }
+
+.sign-sublabel {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.04em;
+  opacity: 0.65;
+}
+
+.shop-sign-wrapper.open  .sign-sublabel { color: #047857; }
+.shop-sign-wrapper.closed .sign-sublabel { color: #b91c1c; }

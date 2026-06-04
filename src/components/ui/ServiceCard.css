@@ -1,0 +1,117 @@
+.service-card {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+}
+
+.service-card.hovered {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-8px);
+}
+
+.scene-preview {
+  height: 220px;
+  position: relative;
+  background: linear-gradient(135deg, #EFF6FF 0%, #F5F3FF 100%);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.scene-preview canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.scene-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 60px;
+  background: linear-gradient(transparent, var(--bg-card));
+  pointer-events: none;
+}
+
+.service-info {
+  padding: 1.5rem;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.service-card.hovered .service-icon {
+  background: var(--primary);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.service-info h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-main);
+  transition: color 0.2s;
+}
+
+.service-card.hovered .service-info h3 { color: var(--primary); }
+
+.service-info p {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.feature-list {
+  list-style: none;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.feature-list li {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.feature-tick {
+  color: var(--success);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scene-loader {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--border-color);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
