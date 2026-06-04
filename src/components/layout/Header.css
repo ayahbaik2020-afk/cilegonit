@@ -160,4 +160,35 @@
 @media (max-width: 768px) {
   .desktop-only { display: none; }
   .mobile-only  { display: flex; }
+
+  /* Mobile glass header bar */
+  .site-header {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.03);
+  }
+
+  .pill-nav {
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.75rem 1.25rem !important;
+  }
+
+  .logo-pill, .menu-pill {
+    background-color: transparent;
+    box-shadow: none;
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
+  .logo-pill:hover, .menu-pill:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+
+  .mobile-menu {
+    border-top: none;
+    background: rgba(255, 255, 255, 0.96);
+  }
 }

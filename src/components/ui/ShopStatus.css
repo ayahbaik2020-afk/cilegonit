@@ -154,3 +154,16 @@
 
 .shop-sign-wrapper.open  .sign-sublabel { color: #047857; }
 .shop-sign-wrapper.closed .sign-sublabel { color: #b91c1c; }
+
+@media (max-width: 768px) {
+  .shop-sign-chain {
+    display: none;
+  }
+  .shop-sign-board {
+    padding: 6px 12px;
+    min-width: unset;
+  }
+  .shop-sign-wrapper {
+    animation: none;
+  }
+}

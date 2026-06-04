@@ -370,6 +370,9 @@
 }
 
 @media (max-width: 768px) {
+  .scroll-hint {
+    display: none;
+  }
   .svc-tab-content {
     grid-template-columns: 1fr;
     min-height: unset;
@@ -377,8 +380,26 @@
   .svc-scene-panel { height: 260px; }
   .svc-info-panel  { padding: 1.5rem; }
   .svc-scene-fade  { display: none; }
-  .svc-tab-btn span { display: none; }
-  .svc-tab-btn { min-width: auto; padding: 0.65rem 0.9rem; }
+
+  .svc-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .svc-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .svc-tab-btn {
+    flex: 0 0 auto;
+    min-width: 145px;
+    scroll-snap-align: start;
+    padding: 0.65rem 1rem;
+  }
+  .svc-tab-btn span {
+    display: inline;
+  }
 }
 
 .pre-label {
